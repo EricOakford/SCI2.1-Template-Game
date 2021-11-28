@@ -5,6 +5,7 @@
 (use Game)
 (use Plane)
 (use Print)
+(use Ego)
 (use System)
 
 (public
@@ -102,6 +103,12 @@
 	;globals > 99 are for game use
 )
 
+(instance egoObj of Ego
+	(properties
+		view vEgo
+	)
+)
+
 (instance SCI21 of Game
 	(method (init)
 		(= screenHeight 480)
@@ -110,5 +117,8 @@
 		(= lastScreenY 479)
 		(= systemPlane Plane)
 		(super init:)
+		(= ego egoObj)
+		(user alterEgo: ego)
+		(self newRoom: TESTROOM)
 	)
 )
