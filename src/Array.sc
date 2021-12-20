@@ -66,7 +66,7 @@
 	;; returns the ID of an array of IDs [0 0 0 0 0 0 0 0 0 0]
 
 		(if (== self Array)
-			(Prints {Can't create an array of base type Array!})
+			;(Prints {Can't create an array of base type Array!})
 			(return NULL)
 		)
 
@@ -74,13 +74,13 @@
 		(array data:
 			(cond
 				(argc
-					(self callKernel: ArrayNew n type)
+					(KArray ArrayNew n type)
 				)
 				(data
-					(self callKernel: ArrayDup data)
+					(KArray ArrayDup data)
 				)
 				(else
-					(self callKernel: ArrayNew 10 type)
+					(KArray ArrayNew 10 type)
 				)
 			)
 		)
@@ -131,9 +131,9 @@
 	;; the array has grown, since we wrote past its end.
 
 		(if (== argc 1)
-			(return (self callKernel: ArrayAt data n))
+			(return (KArray ArrayAt data n))
 		)
-		(self callKernel: ArrayAtPut data n &rest)
+		(KArray ArrayAtPut data n &rest)
 		(return self)
 	)
 
@@ -149,7 +149,7 @@
 	;;		(array1 copyToFrom: 3 array2 3 2)
 	;; returns array1, which is now [1 2 3 2 1]
 
-		(self callKernel: ArrayCpy data to (self callKernel: ArrayGetData source) from length)
+		(KArray ArrayCpy data to (KArray ArrayGetData source) from length)
 		(return self)
 	)
 
@@ -166,7 +166,7 @@
 			(if (self isClass:)
 				((self new:) copy: source)
 			else
-				(self copyToFrom: 0 (self callKernel: ArrayGetData source) 0 -1)
+				(self copyToFrom: 0 (KArray ArrayGetData source) 0 -1)
 			)
 		)
 	)
@@ -199,7 +199,7 @@
 
 		(return
 			(not		; <- this because our StrCmp returns TRUE if different
-				(self callKernel: ArrayCmp data to (self callKernel: ArrayGetData source) from length)
+				(KArray ArrayCmp data to (KArray ArrayGetData source) from length)
 			)
 		)
 	)
@@ -214,10 +214,10 @@
 	;; returns FALSE.
 
 		(return
-			(if (!= (self size:) (self callKernel: ArraySize (self callKernel: ArrayGetData source)))
+			(if (!= (self size:) (KArray ArraySize (KArray ArrayGetData source)))
 				FALSE
 			else
-				(self compToFrom: 0 (self callKernel: ArrayGetData source) 0 -1)
+				(self compToFrom: 0 (KArray ArrayGetData source) 0 -1)
 			)
 		)
 	)
@@ -232,7 +232,7 @@
 	;;		(array fill: 2 2 6)
 	;; returns array, which is now [1 2 6 6 5]
 
-		(return (self callKernel: ArrayFill data from length (if (== argc 3) val else 0)))
+		(return (KArray ArrayFill data from length (if (== argc 3) val else 0)))
 	)
 
 
@@ -257,12 +257,15 @@
 	;; 	((ByteArray with: 1 2 3 4 5) size:)
 	;; returns 5.
 
-		(return (self callKernel: ArraySize data))
+		(return (KArray ArraySize data))
 	)
 
 
 	(method (dispose)
-		(self callKernel: ArrayFree data)
+		(if data
+			(KArray ArrayFree data)
+			(= data 0)
+		)
 		(super dispose:)
 	)
 

@@ -87,7 +87,7 @@
 )
 
 (procedure (FindFormatLen ctrlString args &tmp finalLen len parmCount i str argStr)
-	(= str (String newWith: (KString StrLen (KString StrGetData ctrlString)) {}))
+	(= str (String newWith: (KString StrLen (KArray ArrayGetData ctrlString)) {}))
 	(str copy: ctrlString)
 	(= finalLen (= len (str size:)))
 	(= parmCount 0)
@@ -296,7 +296,7 @@
 			)
 
 			; Clone the text passed so we can do whatever we want
-			(= theText (KString StrDup (KString StrGetData [args 0])))
+			(= theText (KArray ArrayDup (KArray ArrayGetData [args 0])))
 
 			(dialog
 				add:
@@ -420,9 +420,9 @@
 				(d
 					setText:		,
 					mask:			(if (> argc 3)
-										(KString StrDup (KString StrGetData theMask))
+										(KArray ArrayDup (KArray ArrayGetData theMask))
 									else
-										(KString StrDup {*.*})
+										(KArray ArrayDup {*.*})
 									),
 					sort:			FALSE,
 					length:		(if (!= maxLen -1) maxLen else 0),
@@ -651,7 +651,7 @@
 
 			; Clone the text passed so we can do whatever we want
 			(= theText (String new:))
-			(theText copy: (KString StrGetData [args 0]))
+			(theText copy: (KArray ArrayGetData [args 0]))
 
 			(dialog
 				add:
@@ -763,7 +763,7 @@
 				(theText dispose:)
 				(return 0)
 			)
-			(= title (KString StrDup (theText data?)))
+			(= title (KArray ArrayDup (theText data?)))
 			(theText
 				data:		0,
 				dispose:
@@ -771,7 +771,7 @@
 		else
 			; Case b), just a buffer
 
-			(= title (KString StrDup (KString StrGetData [args 0])))
+			(= title (KArray ArrayDup (KArray ArrayGetData [args 0])))
 		)
 	)
 

@@ -61,7 +61,7 @@
 		;	and TRUE, don't free the text string
 
 		(if (or (not argc) (not keepText))
-			(KString StrFree text)
+			(KArray ArrayFree text)
 		)
 		(if rects
 			(rects dispose:)
@@ -121,9 +121,11 @@
 			font
 			theWidth
 		)
-		(= textRight (r at: 2))
-		(if (> theWidth textRight) (= textRight theWidth))
-		(= textBottom (r at: 3))
+		(= textRight (+ textLeft (r at: 2)))
+		(if (> theWidth textRight)
+			(= textRight theWidth)
+		)
+		(= textBottom (+ textTop (r at: 3)))
 		(r dispose:)
 
 		; Now calculate the nsRect by either adding a margin (if no bitmap)

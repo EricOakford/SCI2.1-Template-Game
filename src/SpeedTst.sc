@@ -76,6 +76,8 @@
 		view			64980
 		loop			0
 		cel			0
+		cycleSpeed 6
+		moveSpeed 6
 	)
 
 	(method (doit)

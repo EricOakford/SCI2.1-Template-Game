@@ -23,8 +23,6 @@
 (use Plane)
 (use String)
 (use Array)
-(use System)
-
 
 (define MAX_NUMFILES		250)
 
@@ -118,7 +116,7 @@
 		(Message MsgGet SAVE N_BUTTON_UP 0 0 1 (str data?))
 		(upButton
 				font:			SYSFONT,
-				text:			(KString StrDup (str data?)),
+				text:			(KArray ArrayDup (str data?)),
 				view:			SAVE,
 				loop:			4,
 				cel:			0,
@@ -133,7 +131,7 @@
 		(= downButton
 			((DButton new:)
 				font:			SYSFONT,
-				text:			(KString StrDup (str data?)),
+				text:			(KArray ArrayDup (str data?)),
 				view:			SAVE,
 				loop:			4,
 				cel:			0,
@@ -282,7 +280,7 @@
 				(textList add:
 					((SelectorDText new:)
 						font:			font,
-						text:			(KString StrDup (str data?)),
+						text:			(KArray ArrayDup (str data?)),
 						setSize:		(- width MARGIN),
 						yourself:
 					)
@@ -307,7 +305,7 @@
 		;
 		; Return a copy of the text for the current item
 
-		(return (KString StrDup ((textList at: current) text?)))
+		(return (KArray ArrayDup ((textList at: current) text?)))
 	)
 
 	(method (setSize &tmp widest node obj r)

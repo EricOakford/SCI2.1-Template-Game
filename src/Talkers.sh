@@ -5,7 +5,4 @@
 ;;; 
 
 (define NARRATOR 99)
-(define PRINTMSG 97)
-(define SYSMSG 98)
-(define NOBODY 1)
 

@@ -209,7 +209,7 @@
          ScrollText                 ;; windowID
          ScrollReconstruct          ;; windowID, newWindowID
       )
-
+;;;
 ;;;   ;** Events
 ;;;   GetEvent          kernel   80    ;; evtType, evtObj
 ;;;   GlobalToLocal     kernel   81    ;; evtObj, plane
@@ -226,10 +226,10 @@
          CrsRestrict                ;; restrictX, restrictY, restrictX2, restrictY2
       )
 ;;;   VibrateMouse      kernel   86
-;;;
-;;;
-;;;
-;;;   ;** List functions
+
+
+
+   ;** List functions
 ;;;   KList             kernel   90
       (enum
          LNew                       ;; NONE
@@ -270,35 +270,37 @@
          ArrayDup
          ArrayGetData
       )
-   ;(define  ArrayData     KArray ArrayGetData)
+;;;   (define  ArrayData     KArray ArrayGetData)
 
 ;;;   KString           kernel   92
-      (enum
-         StrNew
-         StrSize
-         StrAt
-         StrAtPut
-         StrFree
-         StrFill
-         StrCpy
-         StrCmp
-         StrDup
-         StrGetData
-         StrLen
-         StrFormat
-         StrFormatAt
-         StrToInt
-         StrTrim
-         StrUpr
-         StrLwr
-         StrTrn
-         StrTrnExclude
-         StrPrint
-      )
-   ;;; for quicker and better notation
-   ;(define  StrData     KString StrGetData)
-
-   ;** File functions
+      	;NOTE: Two functions were removed for SCI3. They were replaced with
+      	; the equivalent KArray functions.
+		(enum
+			StrNew
+			StrSize
+			StrAt
+			StrAtPut
+			StrFree
+			StrFill
+			StrCpy
+			StrCmp
+			;StrDup		;replaced with ArrayDup
+			;StrGetData	;replaced with ArrayGetData
+			StrLen
+			StrFormat
+			StrFormatAt
+			StrToInt
+			StrTrim
+			StrUpr
+			StrLwr
+			StrTrn	
+			StrTrnExclude
+			StrPrint
+		)
+;;;   ;;; for quicker and better notation
+;;;   (define  StrData     KString StrGetData)
+;;;
+;;;   ;** File functions
 ;;;   FileIO            kernel   93
       (enum
          FileOpen                   ;; buffer, mode
@@ -352,10 +354,10 @@
          MemGetType
       )
       ;;; for quicker and better notation
-      ;(define MemType   MemoryInfo MemGetType)
+;;;      (define MemType   MemoryInfo MemGetType)
 
 
-;;;   ;** System reporting
+   ;** System reporting
 ;;;   DeviceInfo        kernel  106
       (enum
          DevGetDevice
@@ -367,7 +369,7 @@
          DevSaveDirMounted    
       )
 
-;;;   ;** Palette functions
+   ;** Palette functions
 ;;;   Palette           kernel   107
       (enum    1
          PAL_MATCH                  
@@ -415,8 +417,8 @@
          RemapToPctGray    ; remapColor %intensity %gray [depthOfField]
          RemapExcludeRange ; start end
       )
-
-
+;;;
+;;;
 ;;;   AddLine           kernel  111    ;; planeObj, x1, y1, x2, y2, [pri],[col],
 ;;;                                     ;   [style(0=solid,1=dashed,2=pattern)],
 ;;;                                     ;   [pattern], [thickness]
@@ -503,7 +505,7 @@
 		)
 
 
-;;;   ;** Miscellaneous
+   ;** Miscellaneous
 ;;;   GetTime           kernel  121
       (enum    1
          SysTime1                   ;; Return HHHH|MMMM|MMSS|SSSS - (hour 1-12)

@@ -165,7 +165,7 @@
 ;		)
 
 		;;access "memory variable" file to seed data
-		(thePath format: {%s.mem} (KString StrGetData sysLogPath))
+		(thePath format: {%s.mem} (KArray ArrayGetData sysLogPath))
 		
 		(if (!= -1 (= logHandle (FileIO FileOpen (thePath data?) fRead)))
 			(FileIO FileFGets (QAinitials data?) 80 logHandle)
@@ -287,7 +287,7 @@
 		)
 		
 		;;NOW, open log file!
-		(thePath format: {%s.log} (KString StrGetData sysLogPath))
+		(thePath format: {%s.log} (KArray ArrayGetData sysLogPath))
 		(if (and
 				firstNote
 				(or
@@ -551,7 +551,7 @@
 			(FileIO FileClose logHandle)
 		)
 		
-		(thePath format: {%s.mem} (KString StrGetData sysLogPath))
+		(thePath format: {%s.mem} (KArray ArrayGetData sysLogPath))
 		(if (and
 				(== -1 (= logHandle (FileIO FileOpen (thePath data?) fTrunc))) ;existing file
 				(== -1 (= logHandle (FileIO FileOpen (thePath data?) fAppend))) ;new file

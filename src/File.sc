@@ -63,11 +63,11 @@
 
 	(method (copy oldOrNew newFileName &tmp oldName newName)
 		(if (> argc 1)
-			(= oldName (KString StrGetData oldOrNew))
-			(= newName (KString StrGetData newFileName))
+			(= oldName (KArray ArrayGetData oldOrNew))
+			(= newName (KArray ArrayGetData newFileName))
 		else
 			(= oldName name)
-			(= newName (KString StrGetData oldOrNew))
+			(= newName (KArray ArrayGetData oldOrNew))
 		)
 		(return
 			(FileIO FileCopy oldName newName)
@@ -79,7 +79,7 @@
 			(self close:)
 		)
 		(return 
-			(FileIO FileUnlink (if argc (KString StrGetData fName) else name))
+			(FileIO FileUnlink (if argc (KArray ArrayGetData fName) else name))
 		)
 	)
 
@@ -125,7 +125,7 @@
 		)
 
 		(return
-			(if handle (FileIO FileRead handle (KString StrGetData str) len) else 0)
+			(if handle (FileIO FileRead handle (KArray ArrayGetData str) len) else 0)
 		)
 	)
 
@@ -146,7 +146,7 @@
 		)
 
 		(return
-			(if handle (FileIO FileFGets (KString StrGetData str) len handle) else	NULL)
+			(if handle (FileIO FileFGets (KArray ArrayGetData str) len handle) else	NULL)
 		)
 	)
 
@@ -157,12 +157,12 @@
 	(method (rename oldOrNew newName &tmp upDate newN oldN tmpStr)
 		(if (> argc 1)
 			(= upDate FALSE)
-			(= oldN (KString StrGetData oldOrNew))
-			(= newN (KString StrGetData newName))
+			(= oldN (KArray ArrayGetData oldOrNew))
+			(= newN (KArray ArrayGetData newName))
 		else
 			(= upDate TRUE)
 			(= oldN name)
-			(= newN (KString StrGetData oldOrNew))
+			(= newN (KArray ArrayGetData oldOrNew))
 		)
 		;The kernel call returns 0 on success, but we should return 1.
 		(if (FileIO FileRename oldN newN)
@@ -208,7 +208,7 @@
 		)
 
 		(return
-			(if handle (FileIO FileWrite handle (KString StrGetData str) len) else 0)
+			(if handle (FileIO FileWrite handle (KArray ArrayGetData str) len) else 0)
 		)
 	)
 
@@ -228,7 +228,7 @@
 		;Multiple writes accepted.
 		(if handle
 			(for ((= i 0)) (< i argc) ((++ i))
-				(if (not (FileIO FileFPuts handle (KString StrGetData [str i])))
+				(if (not (FileIO FileFPuts handle (KArray ArrayGetData [str i])))
 					(return FALSE)
 				)
 			)

@@ -116,14 +116,14 @@
 
 		(Message MsgGet SAVE N_BUTTON_DELETE NULL NULL 1 (butbuf2 data?))
 		(deleteI
-			text:			(KString StrDup (butbuf2 data?)),
+			text:			(KArray ArrayDup (butbuf2 data?)),
 			setSize:		,
 			moveTo:		i (+ (okI nsBottom?) 2)
 		)
 
 		(Message MsgGet SAVE N_BUTTON_CHANGE NULL NULL 1 (butbuf3 data?))
 		(changeDirI
-			text: 		(KString StrDup (butbuf3 data?)),
+			text: 		(KArray ArrayDup (butbuf3 data?)),
 			setSize:		,
 			moveTo: 		i (+ (deleteI nsBottom?) 2),
 			state:		(& (changeDirI state?) (~ dSelected))
@@ -131,7 +131,7 @@
 
 		(Message MsgGet SAVE N_BUTTON_CANCEL NULL NULL 1 (butbuf4 data?))
 		(cancelI
-			text: 		(KString StrDup (butbuf4 data?)),
+			text: 		(KArray ArrayDup (butbuf4 data?)),
 			setSize:		,
 			moveTo: 		i (+ (changeDirI nsBottom?) 2),
 			state: 		(& (cancelI state?) (~ dSelected))
@@ -178,7 +178,7 @@
 			)
 		)
 		(textI
-			text:		(KString StrDup (buf data?)),
+			text:		(KArray ArrayDup (buf data?)),
 			x:			0,
 			y:			0,
 			setSize: 240,  
@@ -261,7 +261,7 @@
 		(okI
 			x:				0,
 			y:				0,
-			text: 		(KString StrDup db),
+			text: 		(KArray ArrayDup db),
 			setSize:		,
 			moveTo: 		i (selectorI nsTop?),
 			state:		(if (or	(and	(== theStatus RESTORE)
@@ -612,7 +612,7 @@
 		((p dialog?)
 			add:
  				((DText new:)
-					text:			(KString StrDup (theText data?)),
+					text:			(KArray ArrayDup (theText data?)),
  					font: 		999,
 					fore:			0,
 					back:			saveColGray,
@@ -661,7 +661,7 @@
 
 (procedure (HaveSpace)
 	(return 	(and 	(< numGames MAXGAMES)
-						(FileIO FileCheckFreeSpace (KString StrGetData curSaveDir) CFSEnoughSpaceToSave)
+						(FileIO FileCheckFreeSpace (KArray ArrayGetData curSaveDir) CFSEnoughSpaceToSave)
 				)
 	)
 )

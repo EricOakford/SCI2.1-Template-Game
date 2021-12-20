@@ -98,7 +98,7 @@ your game will run in the standard VGA mode.
 \\audcdrom.drv
 CD-Audio
 \\audcdrom.hlp
-               CD-ROM DRIVES
+          CD-ROM DRIVES
 
 CD-ROM drives with audio output capability can be
 used to playback the digitally-sampled sounds and
@@ -114,7 +114,7 @@ the sound.
 \\audps1.drv
 IBM PS1
 \\audps1.hlp
-        IBM PS/1 AUDIO/JOYSTICK CARD
+   IBM PS/1 AUDIO/JOYSTICK CARD
 
 The Audio/Joystick Card can be used to playback
 the digitally-sampled sounds and voices of Sierra
@@ -124,7 +124,7 @@ into IBM PS/1 computers.
 \\audtandy.drv
 Tandy with DAC
 \\audtandy.hlp
-                TANDY WITH DAC
+      TANDY WITH DAC
 
 Tandy computers that have a DAC can be used to
 playback the digitally-sampled sounds and voices
@@ -135,7 +135,7 @@ is not available when sampled sounds are played.
 \\audpro.drv
 Pro Audio Spectrum
 \\audpro.hlp
-            PRO AUDIO SPECTRUM CARD
+       PRO AUDIO SPECTRUM CARD
 
 The Pro Audio Spectrum card can be used to playback
 the digitally-sampled sounds and voices of Sierra
@@ -144,7 +144,7 @@ On-Line's games.
 \\audpro16.drv
 Pro Audio Spectrum 16
 \\audpro16.hlp
-            PRO AUDIO SPECTRUM 16 CARD
+       PRO AUDIO SPECTRUM 16 CARD
 
 The Pro Audio Spectrum 16 card can be used to playback
 the digitally-sampled sounds and voices of Sierra
@@ -156,7 +156,7 @@ On-Line's games.
 \\audrap.drv
 Roland RAP10
 \\audrap.hlp
-						ROLAND RAP10
+                  ROLAND RAP10
 The Roland RAP10 is a 26 voice General MIDI sound card
 with a 16 bit DAC and can be used to play back the music
 sampled sounds and voices of Sierra On-Line's games.
@@ -164,7 +164,7 @@ sampled sounds and voices of Sierra On-Line's games.
 \\aria.drv
 Aria Synthesizer
 \\aria.hlp
-                  ARIA SYNTHESIZER
+        ARIA SYNTHESIZER
 
 The Aria Synthesizer plays back MIDI sampled sounds, in 
 addition to the digitally-sampled sounds and voices of
@@ -186,7 +186,7 @@ Card.
 ThunderBoard
 \\audthund.hlp
 
-           MEDIAVISION THUNDERBOARD 
+	   MEDIAVISION THUNDERBOARD 
 
 The ThunderBoard card can be used to playback
 the digitally-sampled sounds and voices of Sierra
@@ -198,7 +198,7 @@ Card.
 \\audmssys.drv
 Microsoft Windows Sound System
 \\audmssys.hlp
-         MICROSOFT WINDOWS SOUND SYSTEM
+	 MICROSOFT WINDOWS SOUND SYSTEM
 This card can be used to playback
 the digitally-sampled sounds and voices of Sierra
 On-Line's games.
@@ -206,7 +206,7 @@ On-Line's games.
 \\audaria.drv
 Aria
 \\audaria.hlp
-         ARIA SOUND CARD
+	 ARIA SOUND CARD
 This card can be used to playback
 the digitally-sampled sounds and voices of Sierra
 On-Line's games.
@@ -222,7 +222,7 @@ On-Line's games.
 \\auddisny.drv
 Disney Sound Source
 \\auddisny.hlp
-            DISNEY SOUND SOURCE
+	    DISNEY SOUND SOURCE
 
 The Disney Sound Source can be used to playback
 the digitally-sampled sounds and voices of Sierra
@@ -231,11 +231,39 @@ On-Line's games.
 \\audnone.drv
 No Audio/Voice Card
 \\audnone.hlp
-               NO AUDIO DRIVER
+	       NO AUDIO DRIVER
 
 Choose this driver if you do not have a sound card
 capable of playing digitally-sampled sounds and
 voices.
+
+\\dacpro16.drv
+Pro Audio Spectrum 16
+\\dacpro16.hlp
+	    PRO AUDIO SPECTRUM 16 CARD
+
+The Pro Audio Spectrum 16 card can be used to playback
+the digitally-sampled sounds and voices of Sierra
+On-Line's games.
+
+\\dacpro.drv
+Pro Audio Spectrum
+\\dacpro.hlp
+	    PRO AUDIO SPECTRUM CARD
+
+The Pro Audio Spectrum card can be used to playback
+the digitally-sampled sounds and voices of Sierra
+On-Line's games.
+
+\\dacpro8.drv
+Pro Audio Spectrum 8
+\\dacpro8.hlp
+	    PRO AUDIO SPECTRUM CARD
+
+The Pro Audio Spectrum card can be used to playback
+the digitally-sampled sounds and voices of Sierra
+On-Line's games on Media Vision 8-bit cards.
+
 
 \\dacblast.drv
 Sound Blaster
@@ -250,38 +278,10 @@ Contact Sierra On-Line to order the Sound Blaster
 Card. 
 
 
-\\dacpro16.drv
-Pro Audio Spectrum 16
-\\dacpro16.hlp
-            PRO AUDIO SPECTRUM 16 CARD
-
-The Pro Audio Spectrum 16 card can be used to playback
-the digitally-sampled sounds and voices of Sierra
-On-Line's games.
-
-\\dacpro.drv
-Pro Audio Spectrum
-\\dacpro.hlp
-            PRO AUDIO SPECTRUM CARD
-
-The Pro Audio Spectrum card can be used to playback
-the digitally-sampled sounds and voices of Sierra
-On-Line's games.
-
-\\dacpro8.drv
-Pro Audio Spectrum 8
-\\dacpro8.hlp
-            PRO AUDIO SPECTRUM CARD
-
-The Pro Audio Spectrum card can be used to playback
-the digitally-sampled sounds and voices of Sierra
-On-Line's games on Media Vision 8-bit cards.
-
-
 \\dacmssys.drv
 Microsoft Windows Sound System
 \\dacmssys.hlp
-         MICROSOFT WINDOWS SOUND SYSTEM
+	 MICROSOFT WINDOWS SOUND SYSTEM
 This card can be used to playback
 the digitally-sampled sounds and voices of Sierra
 On-Line's games.
@@ -308,7 +308,7 @@ sampled sounds and voices of Sierra On-Line's games.
 ThunderBoard
 \\dacthund.hlp
 
-           MEDIAVISION THUNDERBOARD 
+	   MEDIAVISION THUNDERBOARD 
 
 The ThunderBoard card can be used to playback
 the digitally-sampled sounds and voices of Sierra
@@ -320,7 +320,7 @@ Card.
 \\dacaria.drv
 Aria
 \\dacaria.hlp
-         ARIA SOUND CARD
+	 ARIA SOUND CARD
 This card can be used to playback
 the digitally-sampled sounds and voices of Sierra
 On-Line's games.
@@ -336,7 +336,7 @@ On-Line's games.
 \\dacnone.drv
 No Audio/Voice Card
 \\dacnone.hlp
-               NO AUDIO DRIVER
+	       NO AUDIO DRIVER
 
 Choose this driver if you do not have a sound card
 capable of playing digitally-sampled sounds and
@@ -419,17 +419,18 @@ game, try reinstalling without selecting this option.
 \\
 \\SOUND DRIVERS
 \\sbawe32.drv
-Creative Labs AWE32 board
+Creative Labs AWE32
 \\sbawe32.hlp
-						SB AWE32
-This is Sound Blaster's General MIDI version. It uses
-sampled sounds to reproduce music.
+	      Creative Labs AWE32
+
+This music driver will take advantage of the avanced
+sound capabilities built in to the AWE32 sound card.
 
 \\adl.drv
 Sound Blaster / AdLib Card (or compatibles)
 \\adl.hlp
        CREATIVE LABS SOUND BLASTER CARD
-         ADLIB MUSIC SYNTHESIZER CARD
+	 ADLIB MUSIC SYNTHESIZER CARD
 
 These cards can produce 11 simultaneous voices.
 These voices are created using frequency
@@ -439,7 +440,7 @@ and percussive instruments.
 Sound Blaster / Adlib  Substitute
 \\sadl.hlp
        CREATIVE LABS SOUND BLASTER CARD
-         ADLIB MUSIC SYNTHESIZER CARD
+	 ADLIB MUSIC SYNTHESIZER CARD
 This driver is for use by systems which have
 ProAudio or SoundBlaster compatible cards
 which do not work with our other drivers.
@@ -456,7 +457,7 @@ both melodic and percussive instruments.
 \\proaudio.drv
 Pro Audio Spectrum
 \\proaudio.hlp
-            PRO AUDIO SPECTRUM CARD
+	    PRO AUDIO SPECTRUM CARD
 
 The Pro Audio Spectrum card can produce up to 11
 simultaneous voices in stereo.  These voices are 
@@ -502,17 +503,17 @@ Before running your game, be sure to:
     listening level. 
 
 WARNING:  THE MIDI SOUND DRIVER WILL WRITE NEW 
-          SOUNDS INTO YOUR MT-32.  IF YOU ARE USING 
-          YOUR SOUND MODULE FOR COMPOSING AS WELL 
-          AS PLAYING GAMES, AND HAVE LOADED SPECIAL 
-          SOUNDS THAT YOU WANT TO KEEP, BACK THEM 
-          UP BEFORE RUNNING THE GAME.  
-          (This driver writes to unit #17) 
+	  SOUNDS INTO YOUR MT-32.  IF YOU ARE USING 
+	  YOUR SOUND MODULE FOR COMPOSING AS WELL 
+	  AS PLAYING GAMES, AND HAVE LOADED SPECIAL 
+	  SOUNDS THAT YOU WANT TO KEEP, BACK THEM 
+	  UP BEFORE RUNNING THE GAME.  
+	  (This driver writes to unit #17) 
 
 \\genmidi.drv
 General MIDI Sound Driver
 \\genmidi.hlp
-           GENERAL MIDI SOUND DRIVER
+	   GENERAL MIDI SOUND DRIVER
 
 This driver follows the IMA spec for General MIDI.
 It will work with General MIDI compatible devices 
@@ -526,7 +527,7 @@ home stereo or amplified speakers) may be
 necessary to amplify and reproduce the sound.
 
 \\genmidi.inf
-           GENERAL MIDI SOUND DRIVER
+	   GENERAL MIDI SOUND DRIVER
 
 Before running your game, be sure to:
 1.  Make sure the module is connected to your MIDI
@@ -550,7 +551,7 @@ of Sierra On-Line's games.
 Roland MT-32 with Pro Audio Spectrum
 \\mtpro.hlp
  ROLAND MT-32, MT-100, LAPC-I, CM-32L, or CM-64
-           WITH PRO AUDIO SPECTRUM
+	   WITH PRO AUDIO SPECTRUM
 
 \\mtpro.inf
  ROLAND MT-32, LAPC-I, CM-32L, or CM-64 & AUDIO SPECTRUM
@@ -564,18 +565,18 @@ Before running your game, be sure to:
     sounds and voices will be played through the Pro
     Audio Spectrum while music will come from the MT-32.  
 WARNING:  THE MIDI SOUND DRIVER WILL WRITE NEW 
-          SOUNDS INTO YOUR MT-32.  IF YOU ARE USING 
-          YOUR SOUND MODULE FOR COMPOSING AS WELL 
-          AS PLAYING GAMES, AND HAVE LOADED SPECIAL 
-          SOUNDS THAT YOU WANT TO KEEP, BACK THEM 
-          UP BEFORE RUNNING THE GAME.  
-          (This driver writes to unit #17)
+	  SOUNDS INTO YOUR MT-32.  IF YOU ARE USING 
+	  YOUR SOUND MODULE FOR COMPOSING AS WELL 
+	  AS PLAYING GAMES, AND HAVE LOADED SPECIAL 
+	  SOUNDS THAT YOU WANT TO KEEP, BACK THEM 
+	  UP BEFORE RUNNING THE GAME.  
+	  (This driver writes to unit #17)
 
 \\mtblast.drv
 Roland MT-32 with Sound Blaster
 \\mtblast.hlp
  ROLAND MT-32, MT-100, LAPC-I, CM-32L, or CM-64
-              WITH SOUND BLASTER
+	      WITH SOUND BLASTER
 
 These Roland MIDI sound modules are capable
 of playing up to 32 separate synthesizer parts in 
@@ -604,12 +605,12 @@ Before running your game, be sure to:
     sounds and voices will be played through the Sound
     Blaster while music will come from the MT-32.  
 WARNING:  THE MIDI SOUND DRIVER WILL WRITE NEW 
-          SOUNDS INTO YOUR MT-32.  IF YOU ARE USING 
-          YOUR SOUND MODULE FOR COMPOSING AS WELL 
-          AS PLAYING GAMES, AND HAVE LOADED SPECIAL 
-          SOUNDS THAT YOU WANT TO KEEP, BACK THEM 
-          UP BEFORE RUNNING THE GAME.  
-          (This driver writes to unit #17) 
+	  SOUNDS INTO YOUR MT-32.  IF YOU ARE USING 
+	  YOUR SOUND MODULE FOR COMPOSING AS WELL 
+	  AS PLAYING GAMES, AND HAVE LOADED SPECIAL 
+	  SOUNDS THAT YOU WANT TO KEEP, BACK THEM 
+	  UP BEFORE RUNNING THE GAME.  
+	  (This driver writes to unit #17) 
 
 \\mt32ibm.drv
 Roland MT-32, MT-100, LAPC-I, CM-32L, or CM-64
@@ -668,7 +669,7 @@ capable of producing 12 simultaneous voices.
 \\tandy3vd.drv
 Tandy 3 Voice with DAC
 \\tandy3vd.hlp
-          TANDY 3 VOICE PLUS DAC
+	  TANDY 3 VOICE PLUS DAC
 
 Some Tandy computers are capable of recording 
 and playing back digital sound samples in 
@@ -678,9 +679,9 @@ limitations, joystick control is not available
 when sampled sounds are played. 
 
 \\tandy3vd.inf
-          TANDY DAC OPERATION NOTES
+	  TANDY DAC OPERATION NOTES
 
-          ATTENTION JOYSTICK PLAYERS:
+	  ATTENTION JOYSTICK PLAYERS:
 
 Some Tandy computers are capable of producing 
 realistic sampled sound effects.  However, due 
@@ -690,12 +691,12 @@ played.
 
 If you wish full joystick control, hit <Esc> and 
 select: 
-             "TANDY 3 VOICE"
+	     "TANDY 3 VOICE"
 
 \\tandy3v.drv
 Tandy 3 Voice
 \\tandy3v.hlp
-        TANDY 3 VOICE
+	TANDY 3 VOICE
 
 Many Tandy computers can play three
 simultaneous instrument tones.
@@ -703,7 +704,7 @@ simultaneous instrument tones.
 \\ibmps1.drv
 IBM PS/1 Audio/Joystick Card
 \\ibmps1.hlp
-        IBM PS/1 AUDIO/JOYSTICK CARD
+	IBM PS/1 AUDIO/JOYSTICK CARD
 
 The Audio/Joystick Card can play back three
 simultaneous instrument tones in addition to
@@ -713,7 +714,7 @@ installed into IBM PS/1 computers.
 \\jr3v.drv
 IBM PCjr
 \\jr3v.hlp
-              IBM PCjr
+	      IBM PCjr
 
 The IBM PCjr is capable of playing three
 simultaneous instrument tones.
@@ -745,8 +746,7 @@ MT-32 NoLoad Driver (not for shipping)
 \\midnone.drv
 No Music Card
 \\midnone.hlp
-               NO MUSIC DRIVER
+	       NO MUSIC DRIVER
 
 Choose this driver if you do not have a music card or
 you do not want to hear music through your present card.
-

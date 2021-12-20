@@ -67,10 +67,10 @@
 
 		(if (& -info- CLASS)
 			(= str (Clone self))
-			(str data: (self callKernel: StrFormat &rest))
+			(str data: (KString StrFormat &rest))
 			(return str)
 		else
-			(self callKernel: StrFormatAt data &rest)
+			(KString StrFormatAt data &rest)
 			(return self)
 		)
 	)
@@ -85,7 +85,7 @@
 ;; returns a string with value "foobar".
 
 		(= str (Clone self))
-		(str data: (self callKernel: StrDup (self callKernel: StrGetData aStr)))
+		(str data: (KArray ArrayDup (KArray ArrayGetData aStr)))
 		(return str)
 	)
 
@@ -150,7 +150,7 @@
 		else
 			; They passed us a string object or string literal
 			(= str (String newWith: (* numCopies (SizeOfStr whatToCopy))))
-			(= strToCopy (KString StrGetData whatToCopy))
+			(= strToCopy (KArray ArrayGetData whatToCopy))
 			(while (>= (-- numCopies) 0)
 				(str cat: strToCopy)
 			)
@@ -159,7 +159,7 @@
 	)
 
 
-	(method (at n &tmp c)
+	(method (at n)
 
 ;; If only 'n' is passed, return the character at position 'n' (0 based)
 ;; of the string.
@@ -173,11 +173,11 @@
 ;;	(str at: 2 `T)
 ;;		returns 'str', whose string is now "A Test."
 
-		(= c (super at: n &rest))
-		(if (> argc 1)
-			(return self)
+		(if (== argc 1)
+			(return (KArray ArrayAt data n))
 		)
-		(return c)
+		(KArray ArrayAtPut data n &rest)
+		(return self)
 	)
 
 
@@ -200,14 +200,6 @@
 	(method (translate 			
 						oldSub		; old string to substitute for
 						newSub 		; new substitution string to replace old one
-
-						&tmp
-						i		 		; loop index
-						subCount 	; count of substitutions made
-						selfSize		; length in usable chars of myself
-						subSizeOld	; length of the old substitution string
-						subSizeNew	; length of the new substitution string
-						rightStr 	; what is on the right of the oldSub
 			  )
 ;;
 ;; Modifies self by replacing all occurrances of 'oldSub' substitution
@@ -224,9 +216,9 @@
 			(return 0)
 		)
 
-		(self callKernel: StrTrn data oldSub newSub data)
+		(KString StrTrn data oldSub newSub data)
 
-		(return subCount)
+		(return self)
 	)
 
 
@@ -305,15 +297,16 @@
 ;;	(= a (String with: " 1 Test"))			;" 1 Test"
 ;;	(a upper:)										;" 1 TEST"
 
-		(= mySize (self size:))
-		(for ((= i 0)) (< i mySize) ((++ i))
-			(= cur (self at: i))			
-			(if (and (>= cur `a)
-						(<= cur `z)
-				 )
-				(self at: i (- cur 32))
-			)
-		)
+;;;		(= mySize (self size:))
+;;;		(for ((= i 0)) (< i mySize) ((++ i))
+;;;			(= cur (self at: i))			
+;;;			(if (and (>= cur `a)
+;;;						(<= cur `z)
+;;;				 )
+;;;				(self at: i (- cur 32))
+;;;			)
+;;;		)
+		(KString StrUpr data)
 	)
 
 
@@ -325,15 +318,16 @@
 ;;	(= a (String with: " 1 Test"))			;" 1 Test"
 ;;	(a lower:)										;" 1 test"
 
-		(= mySize (self size:))
-		(for ((= i 0)) (< i mySize) ((++ i))
-			(= cur (self at: i))			
-			(if (and (>= cur `A)
-						(<= cur `Z)
-				 )
-				(self at: i (+ cur 32))
-			)
-		)
+;;;		(= mySize (self size:))
+;;;		(for ((= i 0)) (< i mySize) ((++ i))
+;;;			(= cur (self at: i))			
+;;;			(if (and (>= cur `A)
+;;;						(<= cur `Z)
+;;;				 )
+;;;				(self at: i (+ cur 32))
+;;;			)
+;;;		)
+		(KString StrLwr data)
 	)
 
 
@@ -570,7 +564,7 @@
 ;;	((String with: "foo") asInteger:)
 ;;		returns 0
 
-		(return (self callKernel: StrToInt data))
+		(return (KString StrToInt data))
 	)
 
 	(method (size)
@@ -581,7 +575,7 @@
 ;;	((String with: "1234") length:)
 ;;		returns 4
 
-		(return (self callKernel: StrLen data))
+		(return (KString StrLen data))
 	)
 
 
@@ -612,7 +606,7 @@
 			(if (!= (self size:) (SizeOfStr source))
 				FALSE
 			else
-				(self compToFrom: 0 (self callKernel: StrGetData source) 0 (self size:))
+				(self compToFrom: 0 (KArray ArrayGetData source) 0 (self size:))
 			)
 		)
 	)
@@ -632,7 +626,7 @@
 
 		(return
 			(not		; <- this because strcmp returns TRUE if different
-				(self callKernel: StrCmp data (self callKernel: StrGetData source) length)
+				(KString StrCmp data (KArray ArrayGetData source) length)
 			)
 		)
 	)
@@ -755,15 +749,15 @@
 		)
 
 		(if showChar
-			(self callKernel: StrTrim data stripWord showChar)
+			(KString StrTrim data stripWord showChar)
 		else
-			(self callKernel: StrTrim data stripWord)
+			(KString StrTrim data stripWord)
 		)
 
 	)
 
 
-	(method (weigh strB &tmp strA loopInt curCharA curCharB aSize bSize)
+	(method (weigh strB)
 ;
 ;	Weight of self against another string (case sensitive alphabetic compare.)
 ;
@@ -774,43 +768,9 @@
 ;	Returns: -1 when strA < strB, 0 when strA = strB, 1 when strA > strB
 ;
 ;
-		(= strA self)
-	
-		(= aSize (self size:))
-		(= bSize (strB size:))
-
-		(for ((= loopInt 0)) 
-		  	(and (< loopInt aSize) (< loopInt bSize))
-		  	((++ loopInt))
-
-			(= curCharA (strA at: loopInt))
-			(= curCharB (strB at: loopInt))
-
-			(if (!= curCharA curCharB)
-				(if (< curCharA curCharB)
-					(return -1)
-			 	else
-			 		(return 1)
-				)
-			)
-		)
-
-		(cond
-			((== aSize bSize)
-				(return 0)
-			)
-			((< aSize bSize)
-				(return -1)
-			)
-			(else
-				(return 1)
-			)
-		)
+		(KString StrCmp data (KArray ArrayGetData strB) -1)
 	)
 
-	(method (callKernel)
-		(KString &rest)
-	)
 )
 
 
@@ -819,6 +779,6 @@
 ;; regardless of whether 'str' is a String object or a kernel string block.
 
 	(return
-		(KString StrLen (KString StrGetData str))
+		(KString StrLen (KArray ArrayGetData str))
 	)
 )

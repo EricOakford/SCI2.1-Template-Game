@@ -449,7 +449,7 @@
 		)
 		(cast plane: thePlane)
 
-		(Styler init:)	; creates array
+;;;		(Styler init:)	; creates array
 		(self setCursor: normalCursor TRUE)
 	)
 
@@ -477,7 +477,7 @@
 		)
 
 		; Give any control panels their chance
-		(if panels (panels eachElementDo: #doit) )
+;;;		(if panels (panels eachElementDo: #doit) )
 
 		; Give each character in the cast the chance to do its thing.  Show the
 		;	changes on the screen, then delete any cast members who are scheduled
@@ -518,7 +518,7 @@
 		; Remove any expired timers.
 		(timers eachElementDo: #delete:)
 
-		(SaveGame SGGameIsRestarting FALSE)
+;;;		(SaveGame SGGameIsRestarting FALSE)
 	);Game doit
 
 	(method (newRoom n &tmp mX mY theMover theEgo oldCur evt eStyle)
@@ -662,7 +662,7 @@
 ;;;		(SaveGame SGSave name num (comment data?) (KString StrGetData version))
 ;;;#else
 		; Ensure a valid directory
-		(if (not (FileIO FileValidPath (KString StrGetData curSaveDir)))
+		(if (not (FileIO FileValidPath (KArray ArrayGetData curSaveDir)))
 			(= str (String new:))
 			(= buf1 (String new:))
 			(Message MsgGet GAME N_INVALID_DIR NULL NULL 1 (buf1 data?))
@@ -718,7 +718,7 @@
 				(if numCD (self getDisc: numCD) )
 
 				(= oldCur (self setCursor: waitCursor TRUE))
-	 			(if (not (SaveGame SGSave name num (comment data?) (KString StrGetData version)))
+	 			(if (not (SaveGame SGSave name num (comment data?) (KArray ArrayGetData version)))
 					(= buf1 (String new:))
 					(= buf2 (String new:))
 					(Message MsgGet GAME N_SAVE_ERROR NULL NULL 1 (buf1 data?))
@@ -757,7 +757,7 @@
 ;;;		(SaveGame SGRestore name num version)
 ;;;#else
 		; Ensure we have a valid directory
-		(if (not (FileIO FileValidPath (KString StrGetData curSaveDir)))
+		(if (not (FileIO FileValidPath (KArray ArrayGetData curSaveDir)))
 			(Message MsgGet GAME N_INVALID_DIR NULL NULL 1 (buf1 data?))
 			(str format: buf1 curSaveDir)
 			(Print
@@ -811,7 +811,7 @@
 
 			(self setCursor: waitCursor TRUE)
 
-			(if (SaveGame SGCheckSaveGame name num (KString StrGetData version))
+			(if (SaveGame SGCheckSaveGame name num (KArray ArrayGetData version))
 
 				;Acquire appropriate CD in drive
 				(self getDisc: (CD GetSaveCD))

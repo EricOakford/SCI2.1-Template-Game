@@ -1,11 +1,18 @@
 ;;; Sierra Script 1.0 - (do not remove this comment)
 (script# 0)
 (include game.sh)
-(use Sound)
-(use Game)
+(use Styler)
 (use Plane)
+(use String)
+(use Array)
 (use Print)
+(use WalkTalk)
 (use Ego)
+(use Sound)
+(use Save)
+(use Game)
+(use User)
+(use Actor)
 (use System)
 
 (public
@@ -59,7 +66,7 @@
 	unused_8
 	unused_2
 	[sysLogPath 20]					;-used for system standard logfile path	
-	endSysLogPat					;/		(uses 20 globals)
+	endSysLogPath					;/		(uses 20 globals)
 	gameControls					;pointer to instance of game controls
 	ftrInitializer					;pointer to code that gets called from
 													;	a feature's init
@@ -96,29 +103,23 @@
 	walkHandler						;list of objects to get walkEvents
 	textSpeed	=	2				;time text remains on screen
 	altPolyList						;list of alternate obstacles
-	screenWidth	=	320				;
-	screenHeight	=	200			; Coordinate System Parameters
-	lastScreenX	=	319				;
-	lastScreenY	=	199				;
+	screenWidth	=  320				; Coordinate System Parameters
+	screenHeight =  200				;
+	lastScreenX	=  319				;
+	lastScreenY	=  199				;
 	;globals > 99 are for game use
+	debugging
 )
 
-(instance egoObj of Ego
-	(properties
-		view vEgo
-	)
-)
+(instance egoObj of Ego)
 
 (instance SCI21 of Game
 	(method (init)
-		(= screenHeight 480)
 		(= screenWidth 640)
-		(= lastScreenX 639)
-		(= lastScreenY 479)
+		(= screenHeight 480)
 		(= systemPlane Plane)
 		(super init:)
+		(Prints {It's alive!})
 		(= ego egoObj)
-		(user alterEgo: ego)
-		(self newRoom: TESTROOM)
 	)
 )
