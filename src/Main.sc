@@ -111,7 +111,11 @@
 	debugging
 )
 
-(instance egoObj of Ego)
+(instance egoObj of Ego
+	(properties
+		view vEgo
+	)
+)
 
 (instance SCI21 of Game
 	(method (init)
@@ -119,7 +123,8 @@
 		(= screenHeight 480)
 		(= systemPlane Plane)
 		(super init:)
-		(Prints {It's alive!})
 		(= ego egoObj)
+		(user alterEgo: ego)
+		(self newRoom: TESTROOM)
 	)
 )
